@@ -4,8 +4,6 @@ from link_bio.styles import constants
 from typing import Optional
 from reflex_motion import motion
 
-
-
 def stream_popup() -> rx.Component:
     return motion(
                 motion(
@@ -13,7 +11,7 @@ def stream_popup() -> rx.Component:
                         rx.button(
                             rx.hstack(
                                 rx.image(
-                                    src="icons/twitch.svg",
+                                    src="/icons/twitch.svg",
                                     width=styles.Size.BIG.value,
                                     height=styles.Size.BIG.value,
                                     weight=styles.Size.BIG.value,
@@ -39,7 +37,7 @@ def stream_popup() -> rx.Component:
                             width="100%",
                             _hover=constants.CustomHoverPalett.TWITCH.value,
                             border_radius=styles.Size.MEDIUM.value,
-                            border=f"{"2px"} solid {styles.Color.PRIMARY.value}"),
+                            border=f"2px solid {styles.Color.PRIMARY.value}"),
                         
                         href=constants.TWITCH,
                         width="100%",
