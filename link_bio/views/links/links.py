@@ -18,7 +18,7 @@ def links() -> rx.Component:
         spacing=styles.SizeNoEm.MEDIUM.value
         ),rx.vstack(
             title("Recursos y más"),
-            link_button(ext=True,image="icons/book-solid.svg",title="Libros",body="libros y demás contenido",url=constants.BOOKS,hover=constants.HOVER_DISABLED,disabled=constants.BUTTON_DISABLED),
+            link_button(ext=False,image="icons/book-solid.svg",title="Repositorios",body="mis repositorios de github",url=constants.GITHUB_REPOS,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
             link_button(ext=False,image="icons/book-bookmark-solid.svg",title="Cursos",body="cursos que he realizado",url=constants.COURSES,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
             link_button(ext=True,image="icons/amazon.svg",title="Wishlist",body="mi lista de deseados",url=constants.WISHLIST,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.AMAZON.value),
             align="center",

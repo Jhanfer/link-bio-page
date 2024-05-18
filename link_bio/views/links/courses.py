@@ -19,4 +19,13 @@ def courses_links() -> rx.Component:
         spacing=styles.SizeNoEm.MEDIUM.value
         )
 
-        
+def repos_links() -> rx.Component:
+    return rx.vstack(
+        title("Python Web"),
+        link_button(ext=True,image="/icons/github.svg",title="Link Bio Webpage",body="tarjeta de presentación con enlaces",url=constants.LINK_BIO_REPO,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
+        link_button(ext=True,image="/icons/github.svg",title="Webstore Example",body="ejemplo de tienda web (no utilizable)",url=constants.VIVAKITS_STORE_EXAMPLE,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
+        align="center",
+        width="100%",
+        padding=styles.Size.DEFAULT.value,
+        spacing=styles.SizeNoEm.MEDIUM.value
+        )

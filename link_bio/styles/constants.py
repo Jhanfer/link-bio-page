@@ -1,5 +1,6 @@
 from enum import Enum
 import link_bio.styles.styles as styles
+from link_bio.routes import Rutas
 
 ##Enlaces LinkBio##
 TWITCH="https://www.twitch.tv/ukory_"
@@ -7,7 +8,8 @@ YOUTUBE="https://www.youtube.com/channel/UCBiXuvbEJnbv66Wx24DOjAQ"
 DISCORD="https://discord.gg/cuzecE5YzB"
 GITHUB="https://github.com/Jhanfer"
 BOOKS="n/a"
-COURSES="/courses"
+GITHUB_REPOS=Rutas.REPOS.value
+COURSES=Rutas.COURSES.value
 MY_PUBLIC_IMBOX="n/a"
 WISHLIST="https://www.amazon.es/hz/wishlist/ls/16ZS1N3ZTGLY2?ref_=wl_share"
 TIKTOK="https://www.tiktok.com/@koryless?_t=8lubxL9Mhay&_r=1"
@@ -22,6 +24,11 @@ PYTHON_2="https://www.youtube.com/watch?v=TbcEqkabAWU"
 PYTHON_BACKEND_1="https://www.youtube.com/watch?v=_y9qQZXE24A"
 PYTHON_WEB_6HORAS="https://github.com/mouredev/python-web"
 PYTHON_WEB_7HORAS="https://github.com/mouredev/python-web"
+
+##Enlaces mis Repositorios##
+LINK_BIO_REPO="https://github.com/Jhanfer/link-bio-page"
+VIVAKITS_STORE_EXAMPLE="https://github.com/Jhanfer/vivakits-webpage-example"
+
 
 ##Botones##
 BUTTON_DISABLED=True
