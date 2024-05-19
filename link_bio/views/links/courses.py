@@ -27,5 +27,6 @@ def repos_links() -> rx.Component:
         align="center",
         width="100%",
         padding=styles.Size.DEFAULT.value,
-        spacing=styles.SizeNoEm.MEDIUM.value
+        spacing=styles.SizeNoEm.MEDIUM.value,
+        padding_bottom="20em"
         )

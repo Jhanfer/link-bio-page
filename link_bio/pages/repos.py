@@ -20,7 +20,7 @@ def repos() -> rx.Component:
         nav_bar(),
         rx.center(
             rx.vstack(
-            header(),
+            header(details=False),
             repos_links(),
                 align="center",
                 direction="column",

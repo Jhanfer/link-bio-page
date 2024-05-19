@@ -20,7 +20,7 @@ def index() -> rx.Component:
         nav_bar(),
         rx.center(
             rx.vstack(
-                header(),
+                header(details=True),
                 links(),
                 align="center",
                 direction="column",

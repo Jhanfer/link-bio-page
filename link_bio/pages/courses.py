@@ -19,7 +19,7 @@ def courses() -> rx.Component:
         nav_bar(),
         rx.center(
             rx.vstack(
-            header(),
+            header(details=False),
             courses_links(),
                 align="center",
                 direction="column",

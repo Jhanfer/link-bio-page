@@ -7,7 +7,7 @@ import link_bio.styles.fonts as fonts
 from link_bio.components.stream_popup import stream_popup
 from reflex_motion import motion
 
-def header() -> rx.Component:
+def header(details=True) -> rx.Component:
         return rx.vstack(
                 rx.hstack(
                         rx.avatar(
@@ -52,23 +52,25 @@ def header() -> rx.Component:
                         align="start",
                         margin_bottom="0.8em"),
                 
-                stream_popup(),
-                
-                motion(
-                        rx.text("""Soy un pequeño streamer y programador en Python. 
-                                Actualmente, me dedico a estudiar más acerca de este increíble lenguaje,
-                                además de realizar streams en mis tiempos libres. Mi meta es convertirme en
-                                un programador profesional de Machine Learning, desarrollador web y de 
-                                aplicaciones. ¡Gracias!""",
-                                font_size=styles.Size.DEFAULT.value,
-                                width="100%",
-                                style=styles.BODY_STYLE_NO_WIDTH,
-                                white_space="normal",
-                                margin_top="0.8em"),
-                        width="100%",
-                        initial={"y":-50},
-                        animate={"y":5},
-                        transition={"type":"spring","delay":2,"stiffness": 260, "damping": 20}),
+                rx.cond(
+                        details,
+                        rx.container(
+                                stream_popup(),
+                                motion(
+                                        rx.text("""Soy un pequeño streamer y programador en Python. 
+                                                Actualmente, me dedico a estudiar más acerca de este increíble lenguaje,
+                                                además de realizar streams en mis tiempos libres. Mi meta es convertirme en
+                                                un programador profesional de Machine Learning, desarrollador web y de 
+                                                aplicaciones. ¡Gracias!""",
+                                                font_size=styles.Size.DEFAULT.value,
+                                                width="100%",
+                                                style=styles.BODY_STYLE_NO_WIDTH,
+                                                white_space="normal",
+                                                margin_top="0.8em"),
+                                        width="100%",
+                                        initial={"y":-50},
+                                        animate={"y":5},
+                                        transition={"type":"spring","delay":2,"stiffness": 260, "damping": 20}))),
                 align="start",
                 spacing=styles.SizeNoEm.SMALL.value,
                 width="95%")
