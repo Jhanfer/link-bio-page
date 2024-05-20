@@ -18,6 +18,9 @@ SPOTIFY="https://open.spotify.com/playlist/6CtrZ6xOlHIrKDog5RiMlq?si=9f38be19842
 EMAIL="koryunderg@gmail.com"
 WEBPAGE="http://ukory.es"
 
+##Enlace de café##
+INVITEME_A_COFFEE="https://buymeacoffee.com/jhafer77p"
+
 ##Enlaces cusos##
 PYTHON_1="https://www.youtube.com/watch?v=Kp4Mvapo5kc"
 PYTHON_2="https://www.youtube.com/watch?v=TbcEqkabAWU"

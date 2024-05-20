@@ -54,7 +54,7 @@ def header(details=True) -> rx.Component:
                 
                 rx.cond(
                         details,
-                        rx.container(
+                        rx.vstack(
                                 stream_popup(),
                                 motion(
                                         rx.text("""Soy un pequeño streamer y programador en Python. 
@@ -70,7 +70,8 @@ def header(details=True) -> rx.Component:
                                         width="100%",
                                         initial={"y":-50},
                                         animate={"y":5},
-                                        transition={"type":"spring","delay":2,"stiffness": 260, "damping": 20}))),
+                                        transition={"type":"spring","delay":2,"stiffness": 260, "damping": 20}),
+                                spacing=styles.SizeNoEm.SMALL.value)),
                 align="start",
                 spacing=styles.SizeNoEm.SMALL.value,
                 width="95%")
