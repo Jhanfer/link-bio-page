@@ -24,13 +24,11 @@ def nav_bar() -> rx.Component:
                         size="7",
                         href=const.WEBPAGE,
                         is_external=False),
-
                         float_button(href=const.INVITEME_A_COFFEE,
                             icon=rx.image(src="/icons/mug-hot-solid.svg"),
                             target="_blank",
                             shape="square",
                             badge={"dot":True,"color":styles.Color.PRIMARY.value,"ribon":{"placement":"start"}}),
-
                     position="sticky",
                     bg=styles.Color.CONTENT.value,
                     border_radius="0px",
