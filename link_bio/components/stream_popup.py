@@ -50,6 +50,5 @@ def stream_popup() -> rx.Component:
                     width="100%"),
                 width="100%",
                 initial={"scale":0},
-                animate={"scale":1},
-                transition={"type":"spring","delay":2,"stiffness": 260, "damping": 20}
-                )
+                animate={"scale":0.1,"scale":1},
+                transition={"type":"spring","delay":2,"stiffness":1000,"damping":20})

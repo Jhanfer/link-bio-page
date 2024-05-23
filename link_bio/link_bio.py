@@ -4,7 +4,11 @@ import link_bio.styles.constants as cs
 from link_bio.pages.index import index
 from link_bio.pages.repos import repos
 from link_bio.pages.courses import courses
+"""
+class State(rx.State):
+    pass
 
+"""
 ##Reflex App##
 app = rx.App(
     stylesheets=styles.STYLESHEETS,

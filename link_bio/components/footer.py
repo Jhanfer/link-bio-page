@@ -12,7 +12,8 @@ def footer() -> rx.Component:
                 alt="Logotipo de Kory. Es una letra K morada"),
         rx.text(
             f"© 2024-{datetime.date.today().year}",
-            rx.link(" \"uKory;\" ", href=const.WEBPAGE, is_external=False, color_scheme="amber"),
+            rx.link(" \"uKory;\" ", href=const.WEBPAGE, is_external=False, color=styles.Color.PRIMARY.value,
+                    _hover={"color":styles.Color.PRIMARY.value}),
             "by Kory v1.",
             as_="p",
             font_size=styles.Size.MEDIUM.value,

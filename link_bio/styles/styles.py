@@ -66,8 +66,7 @@ BASE_STYLE={
     rx.link:{
         "text_decoration":"none",
         "_hover":{
-            "color":Color.PRIMARY.value},
-        "color_scheme":{}
+            "color":Color.PRIMARY.value}
         },
     rx.avatar:{
         "bg":Color.SECONDARY.value,

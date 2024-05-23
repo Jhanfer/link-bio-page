@@ -25,9 +25,11 @@ def repos_links() -> rx.Component:
         title("Python Web","0em"),
         link_button(ext=True,image="/icons/github.svg",title="Link Bio Webpage",body="tarjeta de presentación con enlaces",url=constants.LINK_BIO_REPO,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
         link_button(ext=True,image="/icons/github.svg",title="Webstore Example",body="ejemplo de tienda web (no utilizable)",url=constants.VIVAKITS_STORE_EXAMPLE,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
+        link_button(ext=True,image="/icons/github.svg",title="Reflex-responsive-carousel",body="wrapping react de carrusel responsivo de imagenes",url=constants.RESPONSIVE_CAROUSEL,disabled=constants.BUTTON_ENABLED,hover=constants.CustomHoverPalett.ALTERNATIVE.value),
         align="center",
         width="100%",
         padding=styles.Size.DEFAULT.value,
         spacing=styles.SizeNoEm.MEDIUM.value,
         padding_bottom="20em"
         )
+
