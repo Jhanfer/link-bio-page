@@ -43,7 +43,3 @@ app.add_page(
     meta=
     image=
 )"""
-
-
-#hay que definir los margenes que vamos a utilizar en los proyectos. Por ejemplo: margen pequeño:15px, margen mediano:25px, margen grande:50px
-

@@ -1,0 +1,8 @@
+"""Comando para hacer la build de docker"""
+# El "-t" es para referirse al nombre del proyecto
+# docker build -t reflex-project:latest .
+# Si no funciona, usar "sudo" antes de el comando de docker
+
+
+"""Despliegue"""
+# docker run -d -p 8000:8000 --name app ukory-web:latest .
