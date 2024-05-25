@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . .
 
 # Creamos la variable donde se va a guardar el entorno virtual - Es recomendable cambiar el nombre del ".venv" a ".venv_[CUALQUIERCOSA]" para evitar confusiones o incompatibilidad
-ENV VIRTUAL_ENV=/app/.venv_docker
+ENV VIRTUAL_ENV=/app/.venv_link-bio-ukory
 
 # Añadir al "PATH" el entorno virtual que hemos creado antesz
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
@@ -26,4 +26,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 # Lanzar el Backend - "--env prod" es para lanzarlo a producción - "--backend-only" es para lanzar solo el backend
-CMD [ -d alembic ] && reflex db migrate; reflex run --env prod --backend-only
+# "[ -d alembic ] && reflex db migrate" verifica si existe el directorio "alembic" (indicando la presencia de scripts de migración de Alembic).
+# Si lo hace, ejecuta el comando reflex db migrate para aplicar cualquier migración de base de datos pendiente.
+ENTRYPOINT [ -d alembic ] && reflex db migrate; reflex run --env prod --backend-only
