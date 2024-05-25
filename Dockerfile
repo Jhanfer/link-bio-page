@@ -29,3 +29,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # "[ -d alembic ] && reflex db migrate" verifica si existe el directorio "alembic" (indicando la presencia de scripts de migración de Alembic).
 # Si lo hace, ejecuta el comando reflex db migrate para aplicar cualquier migración de base de datos pendiente.
 ENTRYPOINT [ -d alembic ] && reflex db migrate; reflex run --env prod --backend-only
+
+# AL publbicar en "railway", se debe configurar una variable de entorno llamada "PORT" con valor de "8000".
+# Esto para definir el puerto a usar
+
+# Colocar un custom domain apuntando con nombre "api" apuntando a un nombre proporcionado por railway
+

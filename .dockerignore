@@ -6,3 +6,6 @@ Caddy.Dockerfile
 compose.yaml
 compose.*.yaml
 uploaded_files
+build.sh
+docker-build-deply-commands
+git-repo-update.sh
