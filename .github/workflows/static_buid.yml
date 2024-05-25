@@ -3,32 +3,34 @@ name: Static Build
 on:
   push:
     branches:
-      -main
+      - main
 
-  jobs:
-    build:
-      if: github.repository == 'Jhanfer/link-bio-page'
-      runs-on: ubuntu-latest
+jobs:
+  build:
+    if: github.repository == 'Jhanfer/link-bio-page'
+    runs-on: ubuntu-latest
 
-      premissions:
-        contents: write
+    permissions:
+      contents: write
 
-      steps:
-        - name: Checkout repo
-          uses: actions/checkout@4v
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-        - name: Setup Python
-          uses: actions/setup-python@v5
-          with:
-            python-version: '3.11'
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-        - name: Run build script
-          run: python ./link_bio/remote_build.sh
+      - name: Run build script
+        run: |
+          chmod +x ./link_bio/remote_build.sh
+          ./link_bio/remote_build.sh
 
-        - name: Commit and Push changes
-          uses: stefanzweifel/git-auto-commit-action@v5
-          with:
-            commit_message: Update static Build
-            commit_user_name: Jhanfer [Github Actions]
-            commit_user_mail: jhafer73@gmail.com
-            commit_authon: Jhanfer <jhanfer73@gmail.com>
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update static Build
+          commit_user_name: Jhanfer [Github Actions]
+          commit_user_email: jhafer73@gmail.com
+          commit_author: Jhanfer <jhanfer73@gmail.com>
