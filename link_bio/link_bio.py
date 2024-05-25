@@ -6,7 +6,7 @@ from link_bio.pages.repos import repos
 from link_bio.pages.courses import courses
 
 class State(rx.State):
-    pass
+    """hola"""
 
     
 ##Reflex App##
