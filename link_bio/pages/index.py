@@ -7,7 +7,12 @@ import link_bio.styles.styles as styles
 import link_bio.utils.utils as ut
 from link_bio.routes import Rutas
 from reflex_motion import motion
-from link_bio.components.responsive_carousel import responsive_carousel
+
+
+class IndexState(rx.State):
+    @rx.var
+    def say_hello(self):
+        pass
 
 @rx.page(
         route=Rutas.INDEX.value,
@@ -16,6 +21,7 @@ from link_bio.components.responsive_carousel import responsive_carousel
         image=ut.preview,
         meta=ut.index_meta 
 )
+
 def index() -> rx.Component: 
     return rx.box(
         ut.lang(),

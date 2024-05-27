@@ -4,9 +4,10 @@ import link_bio.styles.constants as cs
 from link_bio.pages.index import index
 from link_bio.pages.repos import repos
 from link_bio.pages.courses import courses
+from link_bio.api.api import live,repo
 
 class State(rx.State):
-    """hola"""
+    """Hola!"""
 
     
 ##Reflex App##
@@ -17,6 +18,10 @@ app = rx.App(
         rx.script(src=cs.ANALYTICS_SCRIPTS_1),
         rx.script(cs.ANALYTICS_SCRIPTS_2)]
 ) 
+
+
+app.api.add_api_route("/live/{user}",live)
+app.api.add_api_route("/repo",repo)
 
 #old page add
 """def index() -> rx.Component: 
