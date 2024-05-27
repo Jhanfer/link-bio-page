@@ -4,8 +4,23 @@ El "-t" es para referirse al nombre del proyecto
 # docker build -t reflex-project:latest .
 
 Si no funciona, usar "sudo" antes de el comando de docker
+Si no funciona:
+sudo nano $HOME/.docker/config.json
+"""
+then eliminate the lines 
 
-
+{
+"auths":{
+	"https://index.docker.io/v1/":{
+		"auth": "token-example"
+	}
+},
+	"credsStore": "desktop",
+	
+	#do not touch:
+	"currentContext":"desktop-linux"
+}
+"""
 Despliegue
 
 # docker run -d -p 8000:8000 --name app reflex-project:latest .

@@ -7,3 +7,4 @@ API_URL="https://api.ukory.es" reflex export --frontend-only #se añade la líne
 unzip frontend.zip -d public
 rm -f frontend.zip
 deactivate
+            
