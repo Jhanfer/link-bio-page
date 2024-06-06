@@ -22,9 +22,13 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Hacer script ejecutable (opcional, si no ya está establecido)
+        run: |
+          chmod +x ./remote_build.sh
+
       - name: Run build script
-        run: 
-          chmod -x ./remote_build.sh
+        run: |
+          ./remote_build.sh
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
