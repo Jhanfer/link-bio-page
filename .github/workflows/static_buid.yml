@@ -22,10 +22,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Hacer script ejecutable (opcional, si no ya está establecido)
-        run: |
-          chmod +x ./remote_build.sh
-
       - name: Run build script
         run: |
           ./remote_build.sh
