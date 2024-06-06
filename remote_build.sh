@@ -7,4 +7,3 @@ API_URL="https://ukory-web.up.railway.app" reflex export --frontend-only #se añ
 unzip frontend.zip -d public
 rm -f frontend.zip
 deactivate
-            
