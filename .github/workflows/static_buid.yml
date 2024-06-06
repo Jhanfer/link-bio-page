@@ -20,10 +20,11 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Run build script
         run: |
+          chmod +x ./remote_build.sh
           ./remote_build.sh
 
       - name: Commit and Push changes
