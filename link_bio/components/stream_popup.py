@@ -3,6 +3,10 @@ import link_bio.styles.styles as styles
 from link_bio.styles import constants
 from typing import Optional
 from reflex_motion import motion
+from link_bio.state.pagestate import title
+#from link_bio.state.pagestate import PageState
+#from link_bio.api.twitch_api import TwitchAPI
+
 
 def stream_popup() -> rx.Component:
     return motion(
@@ -19,25 +23,28 @@ def stream_popup() -> rx.Component:
                                     alt=f"Logo de Twitch."),
                                 
                                 rx.vstack(
-                                    rx.text(
-                                        "Próximo directo",
+                                    rx.flex(
+                                        rx.text(
+                                        f"{title("title")}",
                                         style=styles.BUTTON_TITLE_STYLE,
-                                        width="100%"),
+                                        width="100%")),
                                     
-                                    rx.text(
-                                        "Aún no hay fecha definida",
-                                        width="100%",
-                                        style=styles.BODY_STYLE),
+                                    rx.flex(
+                                        rx.text(
+                                            f"{title("game_name")}",
+                                            width="100%",
+                                            style=styles.BODY_STYLE)),
                                     
                                     spacing="0",
                                     margin_top=styles.Size.SMALL.value,
-                                    align="center",
-                                    justify="center")),
+                                    align="start",
+                                    justify="center",
+                                    )),
                             
                             width="100%",
                             _hover=constants.CustomHoverPalett.TWITCH.value,
                             border_radius=styles.Size.MEDIUM.value,
-                            border=f"2px solid {styles.Color.PRIMARY.value}"),
+                            border=f"2px solid #6441a5"),
                         
                         href=constants.TWITCH,
                         width="100%",

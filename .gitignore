@@ -1,4 +1,8 @@
 *.db
 *.py[cod]
+.env
 .web
 __pycache__/
+git-repo-update.sh
+initial.sh
+local_build.sh

@@ -1,8 +1,13 @@
 import reflex as rx
+import os
+import dotenv
+
+dotenv.load_dotenv()
+__API_URL=os.environ.get("API_URL")
 
 config = rx.Config(
     app_name="link_bio",
-    api_url="https://api.ukory.es", # se añade la api url creada en railway 
+    api_url=__API_URL,
     cors_allowed_origins=[
         "https://www.ukory.es",
         "http://localhost:3000"

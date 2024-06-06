@@ -9,17 +9,12 @@ from link_bio.routes import Rutas
 from reflex_motion import motion
 
 
-class IndexState(rx.State):
-    @rx.var
-    def say_hello(self):
-        pass
-
 @rx.page(
         route=Rutas.INDEX.value,
         title=ut.index_title,
         description=ut.index_description,
         image=ut.preview,
-        meta=ut.index_meta 
+        meta=ut.index_meta
 )
 
 def index() -> rx.Component: 
@@ -31,7 +26,7 @@ def index() -> rx.Component:
                 header(details=True),
                 links(),
                     motion(
-                        rx.container(rx.text("/ukory/programmer",size="4",color="white")),
+                        rx.container(rx.text("/Jhanfer/link-bio-page",size="3",color="white")),
                         initial={"scale":0},
                         while_in_view={"scale":2},
                         transition={"type":"spring","damping":10,"swiftness":20}),
@@ -43,13 +38,3 @@ def index() -> rx.Component:
         footer()
         )
 
-"""   responsive_carousel(
-                    rx.link(rx.button(rx.image(src="/icons/amazon.svg")),href="/cursos"),
-                    rx.link(rx.button(rx.image(src="/icons/amazon.svg")),href="/repositorios"),
-                    rx.link(rx.button(rx.image(src="/icons/amazon.svg")),href="/coso"),
-                    axis="horizontal",
-                    infinite_loop=True,
-                    auto_play=True,
-                    swipeable=True,
-                    width="50%",
-                    height="50%"),"""

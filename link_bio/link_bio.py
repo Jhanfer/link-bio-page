@@ -1,4 +1,6 @@
 import reflex as rx 
+import os
+import dotenv
 import link_bio.styles.styles as styles
 import link_bio.styles.constants as cs
 from link_bio.pages.index import index
@@ -19,9 +21,12 @@ app = rx.App(
         rx.script(cs.ANALYTICS_SCRIPTS_2)]
 ) 
 
-
-app.api.add_api_route("/live/{user}",live)
-app.api.add_api_route("/repo",repo)
+#API ROUTES PRIVATE
+dotenv.load_dotenv() #se carga el entorno
+__LIVE_ROUTE=os.environ.get("LIVE") #se cargan las variables
+__REPO_ROUTE=os.environ.get("REPO")
+app.api.add_api_route(__LIVE_ROUTE,live) #se agrega la ruta de API
+app.api.add_api_route(__REPO_ROUTE,repo)
 
 #old page add
 """def index() -> rx.Component: 

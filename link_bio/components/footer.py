@@ -2,6 +2,7 @@ import reflex as rx
 import datetime #también se pueden usar librerías de python
 import link_bio.styles.styles as styles
 import link_bio.styles.constants as const
+from reflex.components import chakra as ch
 
 def footer() -> rx.Component:
     return rx.vstack(
@@ -10,9 +11,9 @@ def footer() -> rx.Component:
                 height="2em",
                 weight="2em",
                 alt="Logotipo de Kory. Es una letra K morada"),
-        rx.text(
+        ch.text(
             f"© 2024-{datetime.date.today().year}",
-            rx.link(" \"uKory;\" ", href=const.WEBPAGE, is_external=False, color=styles.Color.PRIMARY.value,
+            ch.link(" \"uKory;\" ", href=const.WEBPAGE, is_external=False, color="gold",
                     _hover={"color":styles.Color.PRIMARY.value}),
             "by Kory v1.",
             as_="p",

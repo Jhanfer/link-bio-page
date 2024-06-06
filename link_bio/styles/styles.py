@@ -20,7 +20,8 @@ class TextColor(Enum):
 ##Stylesheets## esto es para llamar a las fuentes y que pueda ser usado en cualquier navegador
 STYLESHEETS=[
     "https://fonts.googleapis.com/css?family=JetBrains+Mono:weight@100&display=swap",
-    "https://fonts.googleapis.com/css?family=Nunito+Sans:weight@400&display=swap"
+    "https://fonts.googleapis.com/css?family=Nunito+Sans:weight@400&display=swap",
+    "/css/styles.css"
 ]
 
 

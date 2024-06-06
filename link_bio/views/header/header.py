@@ -6,24 +6,38 @@ from link_bio.styles import constants
 import link_bio.styles.fonts as fonts
 from link_bio.components.stream_popup import stream_popup
 from reflex_motion import motion
+from reflex.components import chakra as ch
+from link_bio.state.pagestate import check_live
+
 
 def header(details=True) -> rx.Component:
         return rx.vstack(
                 rx.hstack(
-                        rx.avatar(
+                        ch.avatar(
+                                rx.cond(check_live(),
+                                        ch.avatar_badge(
+                                                box_size=styles.Size.SMALL.value,
+                                                bg="red",
+                                                border_color="red",
+                                                margin="5px",
+                                                justify_content="center",
+                                                class_name="blink")),
+                                name="Jhan Vasquez",
                                 fallback="JV",
                                 src="/koryavatar.jpeg",
-                                size="7",
+                                size="xl",
                                 radius="full",
                                 color=styles.TextColor.BODY.value,
-                                padding="2px"),
+                                background_color=styles.Color.PRIMARY.value,
+                                padding="2px",
+                                border_color=styles.Color.SECONDARY.value),
                         rx.vstack(
                                 rx.heading("Jhan Vasquez",
                                         align="center",
                                         size="6",
                                         style=styles.TITLE_STYLE_NO_WIDTH),
                                 rx.text(
-                                        "@ukory",
+                                        "@ukory_",
                                         align="center",
                                         padding_y="0px",
                                         margin_top="0px !important",
@@ -55,7 +69,9 @@ def header(details=True) -> rx.Component:
                 rx.cond(
                         details,
                         rx.vstack(
+
                                 stream_popup(),
+                                
                                 motion(
                                         rx.text("""Soy un pequeño streamer y programador en Python. 
                                                 Actualmente, me dedico a estudiar más acerca de este increíble lenguaje,

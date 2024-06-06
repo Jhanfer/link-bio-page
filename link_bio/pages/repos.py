@@ -7,12 +7,13 @@ import link_bio.styles.constants as cs
 import link_bio.utils.utils as ut
 from link_bio.views.links.courses import repos_links
 from link_bio.routes import Rutas
+#from link_bio.state.pagestate import PageState
 
 @rx.page(
         route=Rutas.REPOS.value,
         title=ut.repos_title,
         description=ut.repos_description,
-        meta=ut.repos_meta
+        meta=ut.repos_meta,
 )
 def repos() -> rx.Component:
     return rx.box(

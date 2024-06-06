@@ -6,12 +6,15 @@ import link_bio.styles.styles as styles
 from link_bio.views.links.courses import courses_links
 import link_bio.utils.utils as ut
 from link_bio.routes import Rutas
+#from link_bio.state.pagestate import PageState
 
 @rx.page(
         route=Rutas.COURSES.value,
         title=ut.courses_title,
         description=ut.courses_description,
-        meta=ut.courses_meta)
+        meta=ut.courses_meta,
+        
+)
 
 def courses() -> rx.Component:
     return rx.box(
