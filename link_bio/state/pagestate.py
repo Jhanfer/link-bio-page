@@ -22,5 +22,5 @@ USER=var2
 def check_live() -> bool:
     return live(USER)
 
-def title(val):
+def titles(val):
     return TWITCH_API.get_title(USER,val)

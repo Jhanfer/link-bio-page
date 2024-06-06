@@ -3,7 +3,7 @@ import link_bio.styles.styles as styles
 from link_bio.styles import constants
 from typing import Optional
 from reflex_motion import motion
-from link_bio.state.pagestate import title
+from link_bio.state.pagestate import titles
 #from link_bio.state.pagestate import PageState
 #from link_bio.api.twitch_api import TwitchAPI
 
@@ -25,13 +25,13 @@ def stream_popup() -> rx.Component:
                                 rx.vstack(
                                     rx.flex(
                                         rx.text(
-                                        f"{title("title")}",
+                                        f"{titles("title")}",
                                         style=styles.BUTTON_TITLE_STYLE,
                                         width="100%")),
                                     
                                     rx.flex(
                                         rx.text(
-                                            f"{title("game_name")}",
+                                            f"{titles("game_name")}",
                                             width="100%",
                                             style=styles.BODY_STYLE)),
                                     
