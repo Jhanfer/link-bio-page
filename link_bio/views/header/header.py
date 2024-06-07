@@ -7,14 +7,14 @@ import link_bio.styles.fonts as fonts
 from link_bio.components.stream_popup import stream_popup
 from reflex_motion import motion
 from reflex.components import chakra as ch
-from link_bio.state.pagestate import check_live
-
+#from link_bio.state.pagestate import check_live
+from link_bio.state.pagestate import PageState
 
 def header(details=True) -> rx.Component:
         return rx.vstack(
                 rx.hstack(
                         ch.avatar(
-                                rx.cond(check_live(),
+                                rx.cond(PageState.is_live,
                                         ch.avatar_badge(
                                                 box_size=styles.Size.SMALL.value,
                                                 bg="red",

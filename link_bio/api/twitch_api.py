@@ -78,13 +78,10 @@ class TwitchAPI:
         
 
 
-    def get_title(self,user:str,val:str):
+    def get_title(self,user:str):
 
         if self.is_live(user) == False:
-            if val == "title":
-                return "No estoy en vivo"
-            else:
-                return "Estate al pendiente de todos mis canales"
+            return {"title":"No estoy en vivo","game_name":"Regresa pronto!"}
         else:
             response=requests.get(
             f"https://api.twitch.tv/helix/streams?user_login={user}",
@@ -94,4 +91,6 @@ class TwitchAPI:
             
             if response.status_code == 200 and response.json()["data"]:
                 data=response.json()["data"]
-                return data[0][val]
+                return data[0]
+            else:
+                return {"title":"No estoy en vivo","game_name":"Regresa pronto!"}
