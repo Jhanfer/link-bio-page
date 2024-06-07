@@ -6,4 +6,5 @@ reflex init
 API_URL="https://ukory-web.up.railway.app" reflex export --frontend-only #se añade la línea de variable de entorno para especificar la "api_url" al exportar el proyecto
 unzip frontend.zip -d public
 rm -f frontend.zip
+rm -f .env
 deactivate

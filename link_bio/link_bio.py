@@ -23,8 +23,6 @@ app = rx.App(
 
 #API ROUTES PRIVATE
 dotenv.load_dotenv() #se carga el entorno
-__LIVE_ROUTE:str="/example1/{user}"
-__REPO_ROUTE:str="/example2"
 __LIVE_ROUTE:str=os.environ.get("LIVE") #se cargan las variables
 __REPO_ROUTE:str=os.environ.get("REPO")
 app.api.add_api_route(__LIVE_ROUTE,live) #se agrega la ruta de API
