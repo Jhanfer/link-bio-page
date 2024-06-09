@@ -8,10 +8,7 @@ from link_bio.pages.repos import repos
 from link_bio.pages.courses import courses
 from link_bio.api.api import live,repo
 
-class State(rx.State):
-    """Hola!"""
 
-    
 ##Reflex App##
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
@@ -21,12 +18,22 @@ app = rx.App(
         rx.script(cs.ANALYTICS_SCRIPTS_2)]
 ) 
 
-#API ROUTES PRIVATE
-dotenv.load_dotenv() #se carga el entorno
-__LIVE_ROUTE:str=os.environ.get("LIVE") #se cargan las variables
-__REPO_ROUTE:str=os.environ.get("REPO")
-app.api.add_api_route(__LIVE_ROUTE,live) #se agrega la ruta de API
-app.api.add_api_route(__REPO_ROUTE,repo)
+
+# API ROUTES PRIVATE
+class APIRoutes():
+    dotenv.load_dotenv()  # se carga el entorno
+    def routes() -> dict:
+        LIVE_ROUTE:str= os.environ.get("LIVE")  # se cargan las variables
+        REPO_ROUTE:str= os.environ.get("REPO")
+        if LIVE_ROUTE and REPO_ROUTE:
+            return {"live": LIVE_ROUTE, "route": REPO_ROUTE}
+        else:
+            return {"live":"na", "route":"na"}
+
+
+app.api.add_api_route(APIRoutes.routes()["live"],live) #se agrega la ruta de API
+app.api.add_api_route(APIRoutes.routes()["route"],repo)
+
 
 #old page add
 """def index() -> rx.Component: 

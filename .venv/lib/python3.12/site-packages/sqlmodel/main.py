@@ -25,7 +25,7 @@ from typing import (
     overload,
 )
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from pydantic.fields import FieldInfo as PydanticFieldInfo
 from sqlalchemy import (
     Boolean,
@@ -231,8 +231,7 @@ def Field(
     sa_column_args: Union[Sequence[Any], UndefinedType] = Undefined,
     sa_column_kwargs: Union[Mapping[str, Any], UndefinedType] = Undefined,
     schema_extra: Optional[Dict[str, Any]] = None,
-) -> Any:
-    ...
+) -> Any: ...
 
 
 @overload
@@ -268,8 +267,7 @@ def Field(
     repr: bool = True,
     sa_column: Union[Column, UndefinedType] = Undefined,  # type: ignore
     schema_extra: Optional[Dict[str, Any]] = None,
-) -> Any:
-    ...
+) -> Any: ...
 
 
 def Field(
@@ -361,8 +359,7 @@ def Relationship(
     link_model: Optional[Any] = None,
     sa_relationship_args: Optional[Sequence[Any]] = None,
     sa_relationship_kwargs: Optional[Mapping[str, Any]] = None,
-) -> Any:
-    ...
+) -> Any: ...
 
 
 @overload
@@ -371,8 +368,7 @@ def Relationship(
     back_populates: Optional[str] = None,
     link_model: Optional[Any] = None,
     sa_relationship: Optional[RelationshipProperty[Any]] = None,
-) -> Any:
-    ...
+) -> Any: ...
 
 
 def Relationship(
@@ -574,7 +570,18 @@ def get_sqlalchemy_type(field: Any) -> Any:
     # Check enums first as an enum can also be a str, needed by Pydantic/FastAPI
     if issubclass(type_, Enum):
         return sa_Enum(type_)
-    if issubclass(type_, str):
+    if issubclass(
+        type_,
+        (
+            str,
+            ipaddress.IPv4Address,
+            ipaddress.IPv4Network,
+            ipaddress.IPv6Address,
+            ipaddress.IPv6Network,
+            Path,
+            EmailStr,
+        ),
+    ):
         max_length = getattr(metadata, "max_length", None)
         if max_length:
             return AutoString(length=max_length)
@@ -600,16 +607,6 @@ def get_sqlalchemy_type(field: Any) -> Any:
             precision=getattr(metadata, "max_digits", None),
             scale=getattr(metadata, "decimal_places", None),
         )
-    if issubclass(type_, ipaddress.IPv4Address):
-        return AutoString
-    if issubclass(type_, ipaddress.IPv4Network):
-        return AutoString
-    if issubclass(type_, ipaddress.IPv6Address):
-        return AutoString
-    if issubclass(type_, ipaddress.IPv6Network):
-        return AutoString
-    if issubclass(type_, Path):
-        return AutoString
     if issubclass(type_, uuid.UUID):
         return GUID
     raise ValueError(f"{type_} has no matching SQLAlchemy type")

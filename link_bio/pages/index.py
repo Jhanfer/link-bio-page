@@ -9,13 +9,14 @@ from link_bio.routes import Rutas
 from reflex_motion import motion
 from link_bio.state.pagestate import PageState
 
+
 @rx.page(
         route=Rutas.INDEX.value,
         title=ut.index_title,
         description=ut.index_description,
         image=ut.preview,
         meta=ut.index_meta,
-        on_load=PageState.hola
+        on_load=PageState.check_live
         
 )
 
