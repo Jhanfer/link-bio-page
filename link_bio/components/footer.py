@@ -15,7 +15,7 @@ def footer() -> rx.Component:
             f"© 2024-{datetime.date.today().year}",
             ch.link(" \"uKory;\" ", href=const.WEBPAGE, is_external=False, color="gold",
                     _hover={"color":styles.Color.PRIMARY.value}),
-            "by Kory v1.",
+            "by Kory v5.",
             as_="p",
             font_size=styles.Size.MEDIUM.value,
             color=styles.TextColor.HEADER.value

@@ -1,35 +1,28 @@
 import reflex as rx
-from link_bio.api.api import live
+from link_bio.api.api import live, featured,user_streamer
 from link_bio.api.twitch_api import TwitchAPI #se importa la API de Twitch
 
 #inicializamos la API
 TWITCH_API=TwitchAPI() 
-var1="thedanirep"
-var2="nexxuz"
-USER=var2
-
-
 
 class PageState(rx.State):
     is_live:bool=False
-    live_title:str="No estoy en directo"
-    live_game_name:str="Estate al pendiente de mis canales"
+    live_title:str
+    live_game_name:str
+    feature_info:str
+    streamer:str
 
-    def check_live(self):
-        self.is_live = live(USER)
-        dict= TWITCH_API.get_title(USER)
+    async def check_live(self):
+        self.streamer=await user_streamer()
+        self.is_live = await live(self.streamer)
+        dict= TWITCH_API.get_title(self.streamer)
         self.live_title=dict["title"]
         self.live_game_name=dict["game_name"]
 
 
-    def title() -> dict:
-        dict=TWITCH_API.get_title(USER)
+    async def title(self) -> dict:
+        dict=TWITCH_API.get_title(self.streamer)
         return dict
 
-
-"""def check_live() -> bool:
-    return live(USER)"""
-
-"""def titles(val):
-    return PageState.title(val)
-"""
+    async def feature_links(select):
+        featured_info=await featured()

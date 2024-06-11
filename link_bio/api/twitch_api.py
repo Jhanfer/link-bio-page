@@ -93,4 +93,4 @@ class TwitchAPI:
                 data=response.json()["data"]
                 return data[0]
             else:
-                return {"title":"No estoy en vivo","game_name":"Regresa pronto!"}
+                return {"title":"No estoy en vivo ahora","game_name":"Quédate al pendiente de mi canal de Twitch!"}

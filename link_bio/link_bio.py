@@ -26,9 +26,9 @@ class APIRoutes():
         LIVE_ROUTE:str= os.environ.get("LIVE")  # se cargan las variables
         REPO_ROUTE:str= os.environ.get("REPO")
         if LIVE_ROUTE and REPO_ROUTE:
-            return {"live": LIVE_ROUTE, "route": REPO_ROUTE}
+            return {"live":LIVE_ROUTE,"route":REPO_ROUTE}
         else:
-            return {"live":"na", "route":"na"}
+            return {"live":"na","route":"na"}
 
 
 app.api.add_api_route(APIRoutes.routes()["live"],live) #se agrega la ruta de API
