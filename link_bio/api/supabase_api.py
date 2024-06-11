@@ -9,12 +9,19 @@ class SupabaseAPI():
     #asignamos las variables de entorno
     url:str=os.environ.get("SUPABASE_URL") 
     key:str=os.environ.get("SUPABASE_KEY")
+    supabase:Client
 
-    #aignamos supabase
-    supabase:Client=create_client(url,key)
+    def act_data(self):
+        #aignamos supabase
+        if self.url and self.key:
+            self.supabase:Client=create_client(self.url,self.key)
+        else:
+            pass
 
     #definimos la función
     def fearured(self) -> list:
+
+        self.act_data()
         #asignamos los datos a "response" que traemos de mi tabla de supabase llamada "Featured"
         response=self.supabase.table("Featured").select("*").execute()
         
@@ -29,6 +36,7 @@ class SupabaseAPI():
     
     #función para obtener el usuario de SUPABASE
     def streamer_user(self) -> str:
+        self.act_data()
         response=self.supabase.table("Streame_name").select("*").execute()
         data=[]
         if len(response.data) > 0:
