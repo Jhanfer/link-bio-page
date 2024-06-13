@@ -7,7 +7,6 @@ import link_bio.styles.fonts as fonts
 from link_bio.components.stream_popup import stream_popup
 from reflex_motion import motion
 from reflex.components import chakra as ch
-#from link_bio.state.pagestate import check_live
 from link_bio.state.pagestate import PageState
 
 def header(details=True) -> rx.Component:
@@ -90,4 +89,5 @@ def header(details=True) -> rx.Component:
                                 spacing=styles.SizeNoEm.SMALL.value)),
                 align="start",
                 spacing=styles.SizeNoEm.SMALL.value,
-                width="95%")
+                width="95%",
+                on_mount=PageState.check_live)

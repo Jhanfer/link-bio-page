@@ -7,7 +7,6 @@ import link_bio.styles.styles as styles
 import link_bio.utils.utils as ut
 from link_bio.routes import Rutas
 from reflex_motion import motion
-from link_bio.state.pagestate import PageState
 
 
 @rx.page(
@@ -15,9 +14,7 @@ from link_bio.state.pagestate import PageState
         title=ut.index_title,
         description=ut.index_description,
         image=ut.preview,
-        meta=ut.index_meta,
-        on_load=PageState.check_live
-        
+        meta=ut.index_meta
 )
 
 def index() -> rx.Component: 

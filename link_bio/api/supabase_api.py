@@ -1,6 +1,7 @@
 import os
 import dotenv 
 from supabase import create_client, Client #se importa de "supabase" el "create_client" y "Client"
+from link_bio.model.featured import Featured
 
 class SupabaseAPI():
 
@@ -11,6 +12,7 @@ class SupabaseAPI():
     key:str=os.environ.get("SUPABASE_KEY")
     supabase:Client
 
+    #funcion para actualizar los datos de supabase y hacer que no pete el back xd
     def act_data(self):
         #aignamos supabase
         if self.url and self.key:
@@ -19,7 +21,7 @@ class SupabaseAPI():
             pass
 
     #definimos la función
-    def fearured(self) -> list:
+    def fearured(self) -> list[Featured]:
 
         self.act_data()
         #asignamos los datos a "response" que traemos de mi tabla de supabase llamada "Featured"
@@ -30,8 +32,14 @@ class SupabaseAPI():
 
         #comprobamos que la respuesta tenga datos e iteramos los elementos para añadirlos sobre una lista
         if len(response.data) > 0:
-            for feature_item in response.data:
-                featured_data.append(feature_item)
+            for featured_item in response.data: #itera
+                featured_data.append( #añade los datos a una lista con formato Featured
+                    Featured(
+                        title=featured_item["title"],
+                        image=featured_item["image"],
+                        url=featured_item["url"]
+                    )
+                )
         return featured_data
     
     #función para obtener el usuario de SUPABASE
@@ -43,3 +51,8 @@ class SupabaseAPI():
             for item in response.data:
                 data.append(item)
         return data[0]["name"]
+    
+
+    def feature_bool(self):
+        self.act_data()
+

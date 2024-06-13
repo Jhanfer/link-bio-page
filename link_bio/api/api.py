@@ -2,6 +2,7 @@ import link_bio.styles.constants as ct
 import reflex as rx
 from link_bio.api.twitch_api import TwitchAPI #se importa la API de Twitch
 from link_bio.api.supabase_api import SupabaseAPI
+from link_bio.model.featured import Featured
 
 #inicializamos la API de Twitch
 TWITCH_API=TwitchAPI() 
@@ -17,7 +18,7 @@ async def repo() -> str:
     return "https://github.com/Jhanfer/link-bio-page"
 
 
-async def featured() -> list:
+async def featured() -> list[Featured]:
     return SUPABASE_API.fearured()
 
 async def user_streamer() -> str:
